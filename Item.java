@@ -1,21 +1,30 @@
 package com.gildedrose;
 
 public class Item {
-
-    public String name;
-
-    public int sellIn;
-
-    public int quality;
+    private final String name;
+    private final SellIn sellIn;
+    private final Quality quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+        this.sellIn = new SellIn(sellIn);
+        this.quality = new Quality(quality);
     }
 
-   @Override
-   public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+    public String getName() {
+        return name;
+    }
+
+    public SellIn getSellIn() {
+        return sellIn;
+    }
+
+    public Quality getQuality() {
+        return quality;
+    }
+
+    @Override
+    public String toString() {
+        return name + ", " + sellIn.getValue() + ", " + quality.getValue();
     }
 }
